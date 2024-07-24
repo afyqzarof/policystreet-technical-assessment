@@ -23,17 +23,15 @@ $P = 80,000$ <br>
 $r = \frac{6.5}{100}\frac{1}{12} = 0.00542$ <br>
 $n = 5 \times 12 = 60$ <br>
 
-Subbing in the numbers gives us:
-$$A = 80000(0.00542)\frac{1.00542^{60}}{1.00542^{60} -1}$$ 
-$$A = 433.6\frac{1.383}{0.383}$$ 
-$$A = 433.6(3.61)$$ 
-$$A = 1565.30$$ 
+Subbing in the numbers gives us:<br>
+$A = 80000(0.00542)\frac{1.00542^{60}}{1.00542^{60} -1}$ <br>
+$A = 433.6\frac{1.383}{0.383}$ <br>
+$A = 433.6(3.61)$<br>
+$A = 1565.30$ <br>
 
-Therefore monthly installment is  RM 1,565.30
-
+Therefore monthly installment is RM 1,565.30
 
 ### Task 2:
-
 
 ## SQL Questions
 
