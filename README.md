@@ -33,6 +33,16 @@ Therefore monthly installment is RM 1,565.30
 
 ### Task 2:
 
+See `check-digit.ipynb` for code
+
+1. check digit for `"726358263582647"` is `1`
+2. It seems that the occurences are quite evenly distributed within the 101 to 889 range
+
+![bar chart](barchart.png)
+
+
+- The highest occurrence of 90 being 4 and 7
+- The lowest occurrence of 86 being 8 and 9
 ## SQL Questions
 
 #### Note: SQL Function may vary based on different SQL Variants
