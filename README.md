@@ -1,8 +1,46 @@
 # PolicyStreet Technical Assessment
 
 Answers by Afyq Zarof
+
 ## Back End Test
+
 ### Task 1:
+
+#### Monthly Instalment Formula, $A$
+
+$$A = Pr\frac{(r+1)^n}{(r+1)^{n} -1}$$
+
+Where: <br>
+$A$ is monthly instalment <br>
+$P$ is the principal amount borrowed <br>
+$r$ is the monthly interest rate <br>
+$n$ is the number of payments
+
+1. What is the monthly repayment if the customer applies for a RM 80,000 personal loan over a period of 5 years?
+
+Here we have:<br>
+$P = 80,000$ <br>
+$r = \frac{6.5}{100}\frac{1}{12} = 0.00542$ <br>
+$n = 5 \times 12 = 60$ <br>
+
+Subbing in the numbers gives us:
+$$\\\
+A = 80000(0.00542)\frac{1.00542^{60}}{1.00542^{60} -1}
+$$ 
+$$ 
+A = 433.6\frac{1.383}{0.383}
+$$ 
+$$ 
+A = 433.6(3.61)
+$$ 
+$$ 
+A = 1565.30
+$$ 
+
+Therefore monthly installment is  RM 1,565.30
+
+
+### Task 2:
 
 
 ## SQL Questions
@@ -13,11 +51,11 @@ Answers by Afyq Zarof
 
 ```sql
 CREATE VIEW employees_salary_over_ten_thousand AS
-SELECT 
-  employee_id, 
-  first_name, 
-  last_name, 
-  email, 
+SELECT
+  employee_id,
+  first_name,
+  last_name,
+  email,
   salary
 FROM employees
 WHERE salary > 10000;
@@ -36,7 +74,7 @@ WHERE salary > 100000;
 
 ```sql
 CREATE VIEW office_locations AS
-SELECT 
+SELECT
   CONCAT(locations.location_id,' ',locations.state_province) AS location,
   countries.country_name AS country,
   regions.region_name AS region
@@ -51,10 +89,10 @@ WHERE locations.state_province IS NOT NULL;
 4. Using `office_locations` VIEW create in 3.
 
 ```sql
-SELECT 
-  em.employee_id, 
-  em.first_name, 
-  em.last_name, 
+SELECT
+  em.employee_id,
+  em.first_name,
+  em.last_name,
   em.email
 FROM employees AS em
 INNER JOIN departments AS d
@@ -68,10 +106,10 @@ AND SUBSTRING(ol.LOCATION, 6) = 'California';
 5. Using `office_locations` VIEW create in 3.
 
 ```sql
-SELECT 
-  em.employee_id, 
-  em.first_name, 
-  em.last_name, 
+SELECT
+  em.employee_id,
+  em.first_name,
+  em.last_name,
   em.email
 FROM employees AS em
 INNER JOIN departments AS d
@@ -84,10 +122,10 @@ WHERE loc.REGION LIKE 'A%';
 6.
 
 ```sql
-SELECT DISTINCT 
-  em.employee_id, 
-  em.first_name, 
-  em.last_name, 
+SELECT DISTINCT
+  em.employee_id,
+  em.first_name,
+  em.last_name,
   em.email
 FROM employees AS em
 INNER JOIN job_history as jh
@@ -101,11 +139,11 @@ AND jh.end_date < DATE('now');
 7.
 
 ```sql
-SELECT DISTINCT 
-  em.employee_id, 
-  em.first_name, 
-  em.last_name, 
-  em.email, 
+SELECT DISTINCT
+  em.employee_id,
+  em.first_name,
+  em.last_name,
+  em.email,
   em.salary
 FROM employees AS em
 INNER JOIN departments as d
@@ -127,11 +165,11 @@ ON em1.manager_id = em2.employee_id;
 9. Using `office_locations` VIEW create in 3.
 
 ```sql
-SELECT 
-  em.employee_id, 
-  em.first_name, 
-  em.last_name, 
-  em.email, 
+SELECT
+  em.employee_id,
+  em.first_name,
+  em.last_name,
+  em.email,
   ol.country
 FROM employees AS em
 INNER JOIN departments AS d
@@ -166,10 +204,10 @@ GROUP BY job_id;
 Run query
 
 ```sql
-SELECT 
-  pjc.previous_count, 
-  cjc.current_count, 
-  j.job_id, 
+SELECT
+  pjc.previous_count,
+  cjc.current_count,
+  j.job_id,
   j.job_title
 FROM previous_job_count AS pjc
 OUTER JOIN current_job_count as cjc
