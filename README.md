@@ -43,11 +43,13 @@ See `check-digit.ipynb` for code
 - The highest occurrence of 90 being 4 and 7
 - The lowest occurrence of 86 being 8 and 9
 
-### Task 2:
+### Task 3:
 
 See `cyclic-sort.ipynb` for code
 
 1. Answer is `D7D-79H-2GH-44J-FK1`
+2. Answer is `'Congratulations! If you are able to read this message means you managed to complete the advance task for this test.'`
+
 
 ## SQL Questions
 
