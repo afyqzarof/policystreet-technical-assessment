@@ -13,7 +13,12 @@ Answers by Afyq Zarof
 
 ```sql
 CREATE VIEW employees_salary_over_ten_thousand AS
-SELECT employee_id, first_name, last_name, email, salary
+SELECT 
+  employee_id, 
+  first_name, 
+  last_name, 
+  email, 
+  salary
 FROM employees
 WHERE salary > 10000;
 ```
@@ -31,9 +36,10 @@ WHERE salary > 100000;
 
 ```sql
 CREATE VIEW office_locations AS
-SELECT CONCAT(locations.location_id,' ',locations.state_province) AS location,
-countries.country_name AS country,
-regions.region_name AS region
+SELECT 
+  CONCAT(locations.location_id,' ',locations.state_province) AS location,
+  countries.country_name AS country,
+  regions.region_name AS region
 FROM locations
 INNER JOIN countries
 ON locations.country_id = country.country_id
@@ -45,7 +51,11 @@ WHERE locations.state_province IS NOT NULL;
 4. Using `office_locations` VIEW create in 3.
 
 ```sql
-SELECT em.employee_id, em.first_name, em.last_name, em.email
+SELECT 
+  em.employee_id, 
+  em.first_name, 
+  em.last_name, 
+  em.email
 FROM employees AS em
 INNER JOIN departments AS d
 ON em.department_id = d.department_id
@@ -58,7 +68,11 @@ AND SUBSTRING(ol.LOCATION, 6) = 'California';
 5. Using `office_locations` VIEW create in 3.
 
 ```sql
-SELECT em.employee_id, em.first_name, em.last_name, em.email
+SELECT 
+  em.employee_id, 
+  em.first_name, 
+  em.last_name, 
+  em.email
 FROM employees AS em
 INNER JOIN departments AS d
 ON em.department_id = d.department_id
@@ -70,7 +84,11 @@ WHERE loc.REGION LIKE 'A%';
 6.
 
 ```sql
-SELECT DISTINCT em.employee_id, em.first_name, em.last_name, em.email
+SELECT DISTINCT 
+  em.employee_id, 
+  em.first_name, 
+  em.last_name, 
+  em.email
 FROM employees AS em
 INNER JOIN job_history as jh
 ON em.employee_id = jh.employee_id
@@ -83,7 +101,12 @@ AND jh.end_date < DATE('now');
 7.
 
 ```sql
-SELECT DISTINCT em.employee_id, em.first_name, em.last_name, em.email, em.salary
+SELECT DISTINCT 
+  em.employee_id, 
+  em.first_name, 
+  em.last_name, 
+  em.email, 
+  em.salary
 FROM employees AS em
 INNER JOIN departments as d
 ON em.department_id = d.department_id
@@ -104,7 +127,12 @@ ON em1.manager_id = em2.employee_id;
 9. Using `office_locations` VIEW create in 3.
 
 ```sql
-SELECT em.employee_id, em.first_name, em.last_name, em.email, ol.country
+SELECT 
+  em.employee_id, 
+  em.first_name, 
+  em.last_name, 
+  em.email, 
+  ol.country
 FROM employees AS em
 INNER JOIN departments AS d
 ON em.department_id = d.department_id
@@ -138,7 +166,11 @@ GROUP BY job_id;
 Run query
 
 ```sql
-SELECT pjc.previous_count, cjc.current_count, j.job_id, j.job_title
+SELECT 
+  pjc.previous_count, 
+  cjc.current_count, 
+  j.job_id, 
+  j.job_title
 FROM previous_job_count AS pjc
 OUTER JOIN current_job_count as cjc
 ON pjc.job_id = cjc.job_id
