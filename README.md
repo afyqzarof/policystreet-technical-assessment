@@ -40,9 +40,15 @@ See `check-digit.ipynb` for code
 
 ![bar chart](barchart.png)
 
-
 - The highest occurrence of 90 being 4 and 7
 - The lowest occurrence of 86 being 8 and 9
+
+### Task 2:
+
+See `cyclic-sort.ipynb` for code
+
+1. Answer is `D7D-79H-2GH-44J-FK1`
+
 ## SQL Questions
 
 #### Note: SQL Function may vary based on different SQL Variants
