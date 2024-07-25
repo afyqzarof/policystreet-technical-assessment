@@ -88,9 +88,9 @@ SELECT
   regions.region_name AS region
 FROM locations
 INNER JOIN countries
-ON locations.country_id = country.country_id
+ON locations.country_id = countries.country_id
 INNER JOIN regions
-ON country.region_id = regions.region_id
+ON countries.region_id = regions.region_id
 WHERE locations.state_province IS NOT NULL;
 ```
 
@@ -101,13 +101,15 @@ SELECT
   em.employee_id,
   em.first_name,
   em.last_name,
-  em.email
+  em.email,
+  d.location_id,
+  ol.location
 FROM employees AS em
 INNER JOIN departments AS d
 ON em.department_id = d.department_id
 INNER JOIN office_locations AS ol
 ON d.location_id = SUBSTRING(ol.location, 1, 4)
-AND SUBSTRING(ol.LOCATION, 6) = 'California';
+AND SUBSTRING(ol.location, 6) = 'California';
 
 ```
 
@@ -118,13 +120,14 @@ SELECT
   em.employee_id,
   em.first_name,
   em.last_name,
-  em.email
+  em.email,
+  loc.region
 FROM employees AS em
 INNER JOIN departments AS d
 ON em.department_id = d.department_id
 INNER JOIN office_locations AS ol
 ON d.location_id = SUBSTRING(ol.location, 1, 4)
-WHERE loc.REGION LIKE 'A%';
+WHERE loc.region LIKE 'A%';
 ```
 
 6.
@@ -134,7 +137,9 @@ SELECT DISTINCT
   em.employee_id,
   em.first_name,
   em.last_name,
-  em.email
+  em.email,
+  jh.end_date,
+  j.job_title
 FROM employees AS em
 INNER JOIN job_history as jh
 ON em.employee_id = jh.employee_id
